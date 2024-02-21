@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -55,45 +57,66 @@ fun QuizComponent(userID: UserID) {
     val nextQuestion = NextQuestion()
     val score = ScoreController(userID.getName()!!)
 
+    var questionNumber by remember { mutableStateOf(0) }
+    var question by remember { mutableStateOf(allQuestions.getQuestion(questionNumber).questionText) }
+    var answer by remember { mutableStateOf(allQuestions.getQuestion(questionNumber).answer) }
+
     Card(
         modifier = Modifier
-            .wrapContentSize()
-            .border(
-                width = 2.dp,
-                color = Pink40,
-                shape = cardShape,
-            )
-            .clip(cardShape),
-        colors = CardDefaults.cardColors()
+            .padding(16.dp)
+            .fillMaxWidth(),
+        shape = RoundedCornerShape(8.dp)
     ) {
         Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.padding(16.dp)
         ) {
-            var questionNumber by remember { mutableStateOf(0) }
-            var question by remember { mutableStateOf(allQuestions.getQuestion(questionNumber).questionText) }
-            var answer by remember { mutableStateOf(allQuestions.getQuestion(questionNumber).answer) }
 
-            Text(text = question, fontSize = 22.sp, modifier = Modifier.padding(5.dp))
+            Text(
+                text = question,
+                fontSize = 22.sp,
+                modifier = Modifier.padding(bottom = 16.dp)
+            )
 
-            Row {
-                Button(onClick = { if (answer) score.incrementScore(allQuestions.getQuestion(questionNumber).difficulty) }) {
-                    Text("True Button")
+            Row(
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Button(
+                    onClick = { if (answer) score.incrementScore(allQuestions.getQuestion(questionNumber).difficulty) },
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text("True")
                 }
-                Button(onClick = { if (!answer) score.incrementScore(allQuestions.getQuestion(questionNumber).difficulty) }) {
-                    Text("False Button")
-                }
-                Button(onClick = {
-                    questionNumber = nextQuestion.getNextLinearQuestion()
-                    question = allQuestions.getQuestion(questionNumber).questionText
-                    answer = allQuestions.getQuestion(questionNumber).answer
-                }) {
-                    Text("Next Question")
+                Button(
+                    onClick = { if (!answer) score.incrementScore(allQuestions.getQuestion(questionNumber).difficulty) },
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text("False")
                 }
             }
 
-            Text("Score: ${score.getScore().toString()}")
+            Text(
+                text = "Score: ${score.getScore()}",
+                fontSize = 18.sp,
+                modifier = Modifier.padding(top = 16.dp)
+            )
+        }
+
+        Button(
+            onClick = {
+                questionNumber = nextQuestion.getNextLinearQuestion()
+                question = allQuestions.getQuestion(questionNumber).questionText
+                answer = allQuestions.getQuestion(questionNumber).answer
+            },
+            modifier = Modifier
+                .align(Alignment.End)
+                .padding(16.dp)
+        ) {
+            Text("Next Question")
         }
     }
 }
+
+
+
 
