@@ -1,4 +1,4 @@
-package com.example.k2024_02_20_quiz_page.model
+package com.example.myapplication.model
 
 enum class Difficulty {
     EASY, MEDIUM, HARD

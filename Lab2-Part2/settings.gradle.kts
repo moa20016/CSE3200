@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "k2024_02_20_quiz_page"
+rootProject.name = "My Application"
 include(":app")
  

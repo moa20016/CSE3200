@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.k2024_02_20_quiz_page"
+    namespace = "com.example.myapplication"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.k2024_02_20_quiz_page"
+        applicationId = "com.example.myapplication"
         minSdk = 30
         targetSdk = 34
         versionCode = 1
