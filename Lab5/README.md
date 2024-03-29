@@ -1,7 +1,7 @@
-Radio App - Lab5 Code
+Radio App - Lab 5 Code
 ================================
 
-Lab5 code for the Android Studio with Compose: Affirmations app.
+Lab 5 code for the Android Studio with Compose: Affirmations app.
 
 Introduction
 ------------
