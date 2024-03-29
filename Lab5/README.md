@@ -1,26 +1,20 @@
-Affirmations App - Starter Code
+Radio App - Lab5 Code
 ================================
 
-Starter code for the Android Basics with Compose: Affirmations app.
-
+Lab5 code for the Android Studio with Compose: Affirmations app.
 
 Introduction
 ------------
-The Affirmations app contains a scrollable list of 10 cards.
-
-
-Pre-requisites
---------------
-* Familiarity with Lists in Kotlin
-* Experience building layouts with Jetpack Compose
-* Experience running apps on a device or emulator
-
+The Affirmations Radio app contains a scrollable list of 5 Radio Stations.
 
 Getting Started
 ---------------
 1. Install Android Studio, if you don't already have it.
-2. Download the sample.
-3. Import the sample into Android Studio.
-4. Build and run the sample.
+2. Download the repository.
 
-All photos by Romain Guy. All photos are licensed under CC0 https://creativecommons.org/share-your-work/public-domain/cc0/
+Open your command prompt or terminal and execute the following command to clone the repository:
+```shell
+git clone https://github.com/moa20016/CSE3200.git
+```
+4. Import the app into Android Studio.
+5. Build and run the app.
