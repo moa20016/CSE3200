@@ -1,0 +1,28 @@
+<!--
+  ~ Copyright (C) 2023 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     https://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<resources>
+    <string name="app_name">RadioPlayer</string>
+    <string name="radiostation1_name">Lofi Radio</string>
+    <string name="radiostation1_link">https://lofi.stream.laut.fm/lofi</string>
+    <string name="radiostation2_name">Bollywood Radio</string>
+    <string name="radiostation2_link">https://vm65162.streamerr.co/listen/megazone_bollywood_/radio.mp3</string>
+    <string name="radiostation3_name">Anime Radio</string>
+    <string name="radiostation3_link">https://azura12.instainternet.com/radio/8030/radio.mp3</string>
+    <string name="radiostation4_name">Phonk Radio</string>
+    <string name="radiostation4_link">https://phonk.stream.laut.fm/phonk</string>
+    <string name="radiostation5_name">HipHop Radio</string>
+    <string name="radiostation5_link">https://hiphop24.stream.laut.fm/hiphop24</string>
+</resources>
