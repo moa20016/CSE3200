@@ -1,4 +1,4 @@
-package com.example.lab06
+package com.example.k2022_03_09_radio
 
 import org.junit.Test
 
