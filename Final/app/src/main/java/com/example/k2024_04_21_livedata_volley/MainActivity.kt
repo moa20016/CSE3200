@@ -66,8 +66,6 @@ class MainActivity : AppCompatActivity() {
 
                         volleyQueue.add(imageRequest)
                     } else {
-                        // Handle case where there is no primary image URL
-                        // For example, set a default image
                         binding.imageView.setImageResource(R.drawable.default_image)
                     }
                 },
