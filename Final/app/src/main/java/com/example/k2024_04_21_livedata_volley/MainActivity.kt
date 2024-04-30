@@ -1,6 +1,8 @@
 package com.example.k2024_04_21_livedata_volley
 
 import android.graphics.Bitmap
+import android.media.AudioAttributes
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private val metPublicDomainUrl = "https://collectionapi.metmuseum.org/public/collection/v1/objects/"
     private var imageData : JSON_MetMuseum? = null
     private lateinit var volleyQueue: RequestQueue
+    private lateinit var mediaPlayer: MediaPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +37,8 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setUpRadio()
 
         binding.nextImageButton.setOnClickListener {
             val nextIndex = uriViewModel.nextImageNumber()
@@ -72,5 +77,24 @@ class MainActivity : AppCompatActivity() {
                 { error ->  Log.i("PGB" ,"Error: ${error}") })
             volleyQueue.add(jsonObjectRequest)
         }
+    }
+
+    private fun setUpRadio() {
+        mediaPlayer = MediaPlayer().apply {
+            setAudioAttributes(
+                AudioAttributes.Builder()
+                    .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                    .setUsage(AudioAttributes.USAGE_MEDIA)
+                    .build()
+            )
+            setDataSource("https://stream.epic-classical.com/classical-piano")
+            prepareAsync()
+            setOnPreparedListener { mp -> mp.start() }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer.release()
     }
 }
